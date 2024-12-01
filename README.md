@@ -75,5 +75,13 @@ This application provides information about countries, including their name, bor
 
 1. Clone the repository:
    ```bash
-   git clone <repository-url>
-   cd <repository-directory>
+   git clone git@github.com:igorrCarvalho/developsToday-assestment.git
+   cd developsToday-assestment
+
+2. Run docker containers:
+   ```bash
+   docker-compose up --build
+
+- To remove docker containers:
+   ```bash
+   docker-compose down
