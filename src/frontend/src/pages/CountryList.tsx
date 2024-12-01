@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { fetchAvailableCountries } from '../api/api';
+import { LoaderCircle } from 'lucide-react';
 
 const CountryList: React.FC = () => {
   const [countries, setCountries] = useState<{ countryCode: string; name: string }[]>([]);
@@ -12,18 +13,28 @@ const CountryList: React.FC = () => {
       .finally(() => setLoading(false));
   }, []);
 
-  if (loading) return <p>Loading countries...</p>;
+  if (loading) return (
+    <div className='w-full h-screen flex items-center justify-center'>
+        <LoaderCircle className='animate-spin w-16 h-16' />
+    </div>
+  );
 
   return (
-    <div>
-      <h1>Available Countries</h1>
-      <ul>
-        {countries.map((country) => (
-          <li key={country.countryCode}>
-            <Link to={`/country/${country.countryCode}`}>{country.name}</Link>
-          </li>
-        ))}
-      </ul>
+    <div className='w-full h-full flex items-center justify-center'>
+        <div className='w-[50%] flex items-center justify-center flex-col bg-black text-white gap-2 rounded p-5'>
+            <div className='w-full flex items-center justify-center'>
+                <h1 className='text-white'>Available Countries</h1>
+            </div>
+            <div className='bg-white w-[60%] flex items-center justify-center rounded'>
+                <ul className='flex flex-col items-center justify-center'>
+                    {countries.map((country) => (
+                    <li key={country.countryCode} className=''>
+                        <Link className='' to={`/country/${country.countryCode}`}>{country.name}</Link>
+                    </li>
+                    ))}
+                </ul>
+            </div>
+        </div>
     </div>
   );
 };
