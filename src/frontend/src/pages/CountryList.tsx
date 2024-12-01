@@ -14,18 +14,18 @@ const CountryList: React.FC = () => {
   }, []);
 
   if (loading) return (
-    <div className='w-full h-screen flex items-center justify-center'>
-        <LoaderCircle className='animate-spin w-16 h-16' />
+    <div className='w-full h-screen flex items-center justify-center bg-black'>
+        <LoaderCircle className='animate-spin w-16 h-16 text-gray-500' />
     </div>
   );
 
   return (
-    <div className='w-full h-full flex items-center justify-center'>
-        <div className='w-[50%] flex items-center justify-center flex-col bg-black text-white gap-2 rounded p-5'>
+    <div className='w-full h-full flex items-center justify-center bg-black p-5'>
+        <div className='w-[50%] flex items-center justify-center flex-col bg-white text-black gap-2 rounded p-5'>
             <div className='w-full flex items-center justify-center'>
-                <h1 className='text-white'>Available Countries</h1>
+                <h1 className='text-black'>Available Countries</h1>
             </div>
-            <div className='bg-white w-[60%] flex items-center justify-center rounded'>
+            <div className=' w-[60%] flex items-center justify-center rounded'>
                 <ul className='flex flex-col items-center justify-center'>
                     {countries.map((country) => (
                     <li key={country.countryCode} className=''>

@@ -6,15 +6,17 @@ import "./App.css";
 
 const App: React.FC = () => {
   return (
-    <Router>
-      <Routes>
-        {/* Route for Country List Page */}
-        <Route path="/" element={<CountryList />} />
-        
-        {/* Route for Country Info Page */}
-        <Route path="/country/:countryCode" element={<CountryInfo />} />
-      </Routes>
-    </Router>
+    <div className='w-full h-full'>
+      <Router>
+        <Routes>
+          {/* Route for Country List Page */}
+          <Route path="/" element={<CountryList />} />
+          
+          {/* Route for Country Info Page */}
+          <Route path="/country/:countryCode" element={<CountryInfo />} />
+        </Routes>
+      </Router>
+    </div>
   );
 };
 

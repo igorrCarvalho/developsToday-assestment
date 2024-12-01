@@ -14,20 +14,20 @@ import {
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
 
 interface PopulationChartProps {
-  populationData: { year: number; value: number }[];
+  populationData: { year: number; value: number }[] | null;
 }
 
 const PopulationChart: React.FC<PopulationChartProps> = ({ populationData }) => {
-  if (!populationData || populationData.length === 0) {
+  if (!populationData || populationData?.length === 0) {
     return <p>No population data available.</p>;
   }
 
   const data = {
-    labels: populationData.map((item) => item.year),
+    labels: populationData?.map((item) => item.year),
     datasets: [
       {
         label: 'Population',
-        data: populationData.map((item) => item.value),
+        data: populationData?.map((item) => item.value),
         borderColor: 'rgba(75, 192, 192, 1)',
         backgroundColor: 'rgba(75, 192, 192, 0.2)',
         tension: 0.4,
