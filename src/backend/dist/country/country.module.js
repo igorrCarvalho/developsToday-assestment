@@ -6,22 +6,19 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.AppModule = void 0;
+exports.CountryModule = void 0;
 const common_1 = require("@nestjs/common");
-const app_controller_1 = require("./app.controller");
-const app_service_1 = require("./app.service");
-const country_service_1 = require("./country/country.service");
-const country_controller_1 = require("./country/country.controller");
 const axios_1 = require("@nestjs/axios");
-const country_module_1 = require("./country/country.module");
-let AppModule = class AppModule {
+const country_controller_1 = require("./country.controller");
+const country_service_1 = require("./country.service");
+let CountryModule = class CountryModule {
 };
-exports.AppModule = AppModule;
-exports.AppModule = AppModule = __decorate([
+exports.CountryModule = CountryModule;
+exports.CountryModule = CountryModule = __decorate([
     (0, common_1.Module)({
-        imports: [axios_1.HttpModule, country_module_1.CountryModule],
-        controllers: [app_controller_1.AppController, country_controller_1.CountryController],
-        providers: [app_service_1.AppService, country_service_1.CountryService],
+        imports: [axios_1.HttpModule],
+        controllers: [country_controller_1.CountryController],
+        providers: [country_service_1.CountryService],
     })
-], AppModule);
-//# sourceMappingURL=app.module.js.map
+], CountryModule);
+//# sourceMappingURL=country.module.js.map
